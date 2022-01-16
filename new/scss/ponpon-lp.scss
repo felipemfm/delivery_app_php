@@ -1,0 +1,169 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;500;700&family=Noto+Sans+JP:wght@300;500;700&display=swap");
+@import "reset.scss";
+@import "common.scss";
+@import "var.scss";
+
+// ========================================
+// *** PON PON共通ページ
+// ========================================
+// logo
+.logo {
+  position: relative;
+  min-width: 200px;
+  max-width: 200px;
+  z-index: 10;
+  &__text {
+    @include position-center;
+    top: 12px;
+    left: 16px;
+    a {
+      color: $color-white;
+      font-family: $font-MPulsRound;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  @include media_query("sp_v") {
+    z-index: 8;
+    min-width: 160px;
+    max-width: 160px;
+    &__text {
+      top: 8px;
+      left: 8px;
+      a {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+// fix head navigation, contents
+#fixContents {
+  background: transparent;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  transition: 0.4s ease-out 0.4s;
+}
+
+// header
+.header {
+  background: transparent;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  z-index: 8;
+  &__login {
+    justify-content: flex-end !important;
+  }
+  &__member {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  // header left area
+  &__navigation {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 16px;
+    &--right {
+      justify-content: flex-end;
+    }
+    li {
+      a {
+        color: $color-ponpon;
+        text-decoration: none;
+        font-family: $font-MPulsRound;
+        font-weight: bold;
+        font-size: 1rem;
+        border-radius: 50rem;
+        display: block;
+        padding: 2px 20px;
+      }
+    }
+    .active {
+      a {
+        color: $color-white;
+        background: $color-ponpon;
+      }
+    }
+  }
+  // header right area
+  &__flex {
+    display: flex;
+    align-items: center;
+    margin: 0 16px;
+  }
+  // header user icon
+  &__user {
+    background: $color-gray-f0;
+    border: 2px solid $color-white;
+    border-radius: 50rem;
+    width: 42px;
+    height: 42px;
+    margin: 0 0 0 16px;
+    overflow: hidden;
+    object-fit: cover;
+    display: flex;
+    position: relative;
+    z-index: 10;
+    img {
+      height: 42px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  // smartphone
+  @include media_query("sp_v") {
+    height: 50px;
+    &__flex {
+      margin: 0 8px;
+    }
+    &__member {
+      justify-content: flex-end;
+    }
+    &__navigation {
+      display: none;
+      &--login {
+        display: flex;
+      }
+    }
+  }
+}
+
+// title
+.title {
+  width: 100%;
+  margin: 40px 0 60px 0;
+  padding: 0 8%;
+  position: relative;
+  h1 {
+    color: $color-ponpon;
+    font-size: 2rem;
+  }
+}
+
+// footer
+footer {
+  color: $color-black;
+  background: $color-gray-f0;
+  text-align: center;
+  margin-top: auto;
+  padding: 8px 0;
+  small {
+    font-size: 0.75rem;
+    color: $color-gray-80;
+    display: block;
+    text-align: center;
+  }
+}

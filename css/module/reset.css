@@ -1,0 +1,103 @@
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-family: sans-serif; line-height: 1.15; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); height: 100%; }
+
+article, aside, figcaption, figure, footer, header, hgroup, main, nav, section { display: block; }
+
+.tbM0 { margin: 0 !important; }
+
+body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Noto Sans", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; font-size: 1rem; font-weight: 500; line-height: 1.5; letter-spacing: 0.08em; color: #252525; text-align: left; background-color: #ffffff; display: flex; flex-direction: column; height: 100%; }
+
+[tabindex="-1"]:focus:not(:focus-visible) { outline: 0 !important; }
+
+hr { box-sizing: content-box; height: 0; overflow: visible; }
+
+h1, h2, h3, h4, h5, h6 { margin: 0; font-family: "M PLUS Rounded 1c", sans-serif; }
+
+p { margin-top: 0; margin-bottom: 1rem; }
+
+abbr[title], abbr[data-original-title] { text-decoration: underline; text-decoration: underline dotted; cursor: help; border-bottom: 0; -webkit-text-decoration-skip-ink: none; text-decoration-skip-ink: none; }
+
+address { margin-bottom: 1rem; font-style: normal; line-height: inherit; }
+
+ol, ul, dl { margin-top: 0; margin-bottom: 1rem; padding: 0; list-style: none; }
+
+ol ol, ul ul, ol ul, ul ol { margin-bottom: 0; }
+
+dt { font-weight: 700; }
+
+dd { margin-bottom: 0.5rem; margin-left: 0; }
+
+blockquote { margin: 0 0 1rem; }
+
+b, strong { font-weight: bolder; }
+
+small { font-size: 80%; }
+
+sub, sup { position: relative; font-size: 75%; line-height: 0; vertical-align: baseline; }
+
+sub { bottom: -0.25em; }
+
+sup { top: -0.5em; }
+
+a { text-decoration: none; background-color: transparent; }
+
+a:hover { text-decoration: none; }
+
+a:not([href]):not([class]) { color: inherit; text-decoration: none; }
+
+a:not([href]):not([class]):hover { color: inherit; text-decoration: none; }
+
+img { width: 100%; }
+
+pre, code, kbd, samp { font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 1em; }
+
+pre { margin-top: 0; margin-bottom: 1rem; overflow: auto; }
+
+.preload { transition: none !important; }
+
+figure { margin: 0 0 1rem; }
+
+img { vertical-align: middle; border-style: none; }
+
+svg { overflow: hidden; vertical-align: middle; }
+
+.svg-inline--fa { margin-right: 8px; }
+
+table { border-collapse: collapse; }
+
+caption { padding-top: 0.75rem; padding-bottom: 0.75rem; color: #6c757d; text-align: left; caption-side: bottom; }
+
+th { text-align: inherit; text-align: -webkit-match-parent; }
+
+[hidden] { display: none !important; }
+
+input[type="date"], input[type="time"] { -webkit-appearance: none; -webkit-min-logical-width: calc(100% - 16px); }
+
+.form { width: 100%; }
+
+.form input, .form button, .form select, .form textarea { font-size: 0.9125rem; appearance: none; border: none; outline: none; }
+
+.form input, .form textarea { background: #ffffff; border-radius: 5px; }
+
+.form input { width: 100%; padding: 12px; }
+
+.form input::placeholder { color: #aaaaaa; }
+
+.form input[type="date"], .form input[type="time"] { width: 100%; }
+
+.form input[type="submit"], .form input[type="button"], .form label, .form button, .form select { cursor: pointer; }
+
+.form select::-ms-expand { display: none; }
+
+.form label { font-size: 0.75rem; margin-bottom: 8px; display: block; }
+
+.form .radio label { position: relative; padding-left: 1.25em; margin-right: 1em; }
+
+.form .radio label::before { content: ""; display: block; position: absolute; top: 0; left: 0; width: 15px; height: 15px; border: 1px solid #ddd; border-radius: 50%; background: #eee; }
+
+.form .radio input:checked + label::after { content: ""; display: block; position: absolute; top: 3px; left: 3px; width: 11px; height: 11px; background: #f22580; border-radius: 50%; }
+
+.form select { border: 1px solid #ddd; padding: 10px; border-radius: 5px; background: #eee; }
+
+.form textarea { resize: vertical; margin: 10px 0 0; padding: 5px; width: 100%; height: 8em; }

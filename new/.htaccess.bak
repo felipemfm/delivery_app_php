@@ -1,0 +1,27 @@
+
+#SITEGUARD_PLUGIN_SETTINGS_START
+#==== SITEGUARD_RENAME_LOGIN_SETTINGS_START
+<IfModule mod_rewrite.c>
+    RewriteEngine on
+    RewriteBase /
+    RewriteRule ^wp-signup\.php 404-siteguard [L]
+    RewriteRule ^wp-activate\.php 404-siteguard [L]
+    RewriteRule ^login_52319(.*)$ wp-login.php$1 [L]
+</IfModule>
+#==== SITEGUARD_RENAME_LOGIN_SETTINGS_END
+#SITEGUARD_PLUGIN_SETTINGS_END
+
+# BEGIN WordPress
+# END WordPress
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 weeks"
+  ExpiresByType application/javascript "access plus 1 weeks"
+  ExpiresByType text/javascript "access plus 1 weeks"
+  ExpiresByType image/gif "access plus 1 weeks"
+  ExpiresByType image/jpeg "access plus 1 weeks"
+  ExpiresByType image/png "access plus 1 weeks"
+  ExpiresByType image/svg "access plus 1 weeks"
+  ExpiresByType image/x-icon "access plus 1 weeks"
+</IfModule>
