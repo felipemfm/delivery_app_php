@@ -10,7 +10,7 @@ if (isset($_SESSION["error"])) {
   if ($_SESSION["error"] == "email")
     echo '<script type="text/javascript">alert("無効なメールアドレス");</script>';
   if ($_SESSION["error"] == "userExists")
-    echo '<script type="text/javascript">alert("ユーザーIDまたはメールアドレスがすでに登録されています");</script>';
+    echo '<script type="text/javascript">alert("既にユーザーIDが登録されています");</script>';
   session_unset();
   session_destroy();
 }
@@ -64,12 +64,9 @@ if (isset($_SESSION["error"])) {
                 <dt><label>ユーザーID</label></dt>
                 <dd>
                   <input type="text" name="id" value="" placeholder="半角英数字" autocomplete="off">
-                  <!-- <span class="form_format form_format-error">半角英数字で入力してください。</span> -->
                 </dd>
                 <dt><label>郵便番号</label></dt>
-                <dd><input type="text" name="postal-code" value="" placeholder="半角数字(ハイフン不要)" autocomplete="postal-code"></dd>
-                <!-- <dt><label>ユーザー名</label></dt>
-                                <dd><input type="text" name="name" value="" placeholder="全角または半角文字"></dd>  -->
+                <dd><input type="text" name="postal-code" value="" placeholder="160-0023" autocomplete="postal-code"></dd>
                 <dt><label>メールアドレス</label></dt>
                 <dd><input type="email" name="email" value="" placeholder="hal@ponpon.co.jp" autocomplete="email"></dd>
                 <dt><label>パスワード</label></dt>
@@ -87,7 +84,6 @@ if (isset($_SESSION["error"])) {
           <div class="form__login--right">
             <div class="form__visual">
               <img src="../images/ponpon-regist-visual.png" alt="PON PON体験版 | イメージ画像" loading="lazy">
-              <!-- <a href="../mypage/index.php" class="form__visual--link">体験版を試す</a> -->
             </div>
           </div>
         </div>

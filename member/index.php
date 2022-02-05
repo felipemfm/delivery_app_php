@@ -4,7 +4,7 @@ if (isset($_SESSION["error"])) {
   if ($_SESSION["error"] == "emptyInput")
     echo '<script type="text/javascript">alert("入力してください");</script>';
   if ($_SESSION["error"] == "wrongLogin")
-    echo '<script type="text/javascript">alert("ユーザーIDまたはメールアドレスが正しくありません");</script>';
+    echo '<script type="text/javascript">alert("ユーザーIDが正しくありません");</script>';
   session_unset();
   session_destroy();
 }
@@ -56,7 +56,7 @@ if (isset($_SESSION["error"])) {
             <form action="../includes/login.inc.php" method="post">
               <dl class="form-inputGroup">
                 <dt><label>PON PON ID</label></dt>
-                <dd><input type="text" name="input" value="" placeholder="ユーザIDまたはメールアドレス"></dd>
+                <dd><input type="text" name="input" value="" placeholder="ユーザーID"></dd>
                 <dt><label>パスワード</label></dt>
                 <dd>
                   <input type="password" name="password" value="" placeholder="半角英数字">

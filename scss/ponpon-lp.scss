@@ -6,9 +6,27 @@
 // ========================================
 // *** PON PON共通ページ
 // ========================================
-.body {
-  position: relative;
+* {
+  font-family: $font-MPulsRound;
 }
+.body {
+  color: #505050;
+  position: relative;
+  animation: lodingStop 8s ease;
+}
+.lp--warp {
+  width: 100%;
+  overflow: hidden;
+}
+@keyframes lodingStop {
+  0% {
+    overflow: hidden;
+  }
+  100% {
+    overflow: auto;
+  }
+}
+
 // logo
 .logo {
   position: relative;
@@ -16,12 +34,12 @@
   max-width: 200px;
   z-index: 10;
   &__text {
+    color: $color-white;
     @include position-center;
     top: 12px;
     left: 16px;
     a {
       color: $color-white;
-      font-family: $font-MPulsRound;
       font-size: 1.5rem;
       font-weight: bold;
     }
@@ -83,15 +101,25 @@
       justify-content: flex-end;
     }
     li {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 5rem;
+      transition: 0.4s;
+      &:hover {
+        background: $color-ponpon;
+        a {
+          color: $color-white;
+        }
+      }
       a {
         color: $color-ponpon;
+        border: 2px solid $color-ponpon;
         text-decoration: none;
-        font-family: $font-MPulsRound;
         font-weight: bold;
         font-size: 1rem;
         border-radius: 50rem;
         display: block;
         padding: 2px 20px;
+        transition: 0.4s;
       }
     }
     .active {
@@ -156,6 +184,34 @@
   }
 }
 
+// head title
+.lp-head {
+  text-align: center;
+  span {
+    color: $color-ponpon;
+  }
+  &__title {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+  &__description {
+    font-size: 1.75rem;
+  }
+  &__title,
+  &__description {
+    font-weight: bold;
+  }
+  // smartphone
+  @include media_query("sp_v") {
+    &__title {
+      font-size: 1.75rem;
+    }
+    &__description {
+      font-size: 1.5rem;
+    }
+  }
+}
+
 // footer
 footer {
   color: $color-black;
@@ -168,6 +224,11 @@ footer {
     color: $color-gray-80;
     display: block;
     text-align: center;
+  }
+  @include media_query("sp_v") {
+    small {
+      font-size: 0.5rem;
+    }
   }
 }
 
@@ -185,12 +246,33 @@ footer {
   }
 }
 
+// wave
+.wave {
+  width: 100%;
+  &__top {
+    top: -160px;
+    left: 0;
+    transform: rotate(-180deg);
+  }
+  &__buttom {
+    bottom: -160px;
+    left: 0;
+  }
+  &__top,
+  &__buttom {
+    fill: $color-white;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    z-index: 1;
+  }
+}
+
 // ========================================
 // *** プロモーションページ
 // ========================================
 // loding anime
 .bounce {
-  font-family: $font-MPulsRound;
   font-size: 6rem;
   font-weight: bold;
   color: $color-ponpon;
@@ -255,11 +337,19 @@ footer {
       transform: translate3d(0, -1em, 0);
     }
   }
+  // smartphone
+  @include media_query("sp_v") {
+    font-size: 4rem;
+    transform: translate(-50%);
+    top: 0%;
+    left: 50%;
+  }
 }
 
-// hero
+// ========================================
+// *** hero
+// ========================================
 .hero {
-  overflow-x: hidden;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -280,6 +370,8 @@ footer {
     transform: translate(0);
     opacity: 0;
     animation: fadeUpRightPonpon 3s 2s ease-in-out forwards, fadeUpDownPonpon 1s ease-in-out infinite alternate;
+    position: relative;
+    z-index: 2;
     @keyframes fadeUpRightPonpon {
       0% {
         opacity: 0;
@@ -323,7 +415,6 @@ footer {
     }
   }
   &__text {
-    font-family: $font-MPulsRound;
     font-size: 2rem;
     letter-spacing: 0.2em;
     font-weight: bold;
@@ -350,10 +441,9 @@ footer {
     z-index: -2;
     opacity: 0;
     height: 100vh;
-    overflow-y: auto;
     animation: skylineRightUpAnime 3s 3s ease-out forwards;
     background-size: 200vh;
-    background-image: url("../../../images/svg-skyline.svg");
+    background-image: url("../../../images/svg-skyline-pink.svg");
     background-repeat: no-repeat;
   }
   // background-image fade
@@ -418,16 +508,837 @@ footer {
       }
     }
   }
+  // tablet
+  @include media_query("tab") {
+    &__ponponBody {
+      position: absolute;
+      bottom: 0;
+      max-width: 320px;
+      min-width: 240px;
+      margin: auto;
+    }
+    &__mainBox {
+      margin-bottom: 120px;
+    }
+    &__consept {
+      min-width: 100%;
+      padding: 3rem 1rem 3rem 4rem;
+    }
+    &__title {
+      font-size: 3rem;
+    }
+    &__text {
+      font-size: 1.5rem;
+    }
+    &__svg {
+      &--waveWhite {
+        top: 4rem;
+        left: 1rem;
+        height: 120px;
+      }
+      &--box {
+        right: 0;
+      }
+    }
+  }
+  // smartphone
+  @include media_query("sp_v") {
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 50rem;
+    &--skyline {
+      height: 50rem;
+    }
+    &__ponponBody {
+      max-width: 240px;
+    }
+    &__mainBox {
+      margin-bottom: 0;
+      margin-top: 8rem;
+    }
+    &__consept {
+      min-width: 100%;
+      padding: 2rem 1rem 2rem 2.5rem;
+    }
+    &__title {
+      font-size: 1.5rem;
+    }
+    &__text {
+      font-size: 0.9125rem;
+      span {
+        display: initial;
+      }
+    }
+    &__svg {
+      &--waveWhite {
+        top: 2.5rem;
+        left: 0.5rem;
+        height: 64px;
+      }
+      &--waveYellow {
+        width: 80px;
+      }
+      &--box {
+        top: -24px;
+        height: 64px;
+      }
+      &--sun {
+        top: 5rem;
+        width: 64px;
+        height: 64px;
+        display: none;
+      }
+      &--triangle {
+        width: 72px;
+        right: 40%;
+      }
+      &--triangle3d {
+        display: none;
+      }
+    }
+  }
 }
 
-// second section
-.second {
+// ========================================
+// *** consept
+// ========================================
+.consept {
+  width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   &__box {
-    &--title {
-      color: $color-link;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.8);
+    width: auto;
+    margin: 0 auto 0 0;
+    padding: 2rem;
+  }
+  &__title {
+    color: $color-link;
+    font-size: 3rem;
+    margin-bottom: 24px;
+    span {
+      display: block;
+    }
+  }
+  &__text {
+    color: #22546c;
+    font-size: 1.5rem;
+    line-height: 2;
+    span {
+      display: block;
+    }
+  }
+  &__visual {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: auto;
+    left: auto;
+    z-index: -1;
+    &--main {
+      max-width: 1200px;
+    }
+    &--delivery {
+      max-width: 160px;
+      top: 12%;
+      right: 50%;
+      animation: fadeUpDownPonpon2 1s linear infinite alternate !important;
+    }
+    &--shopping {
+      max-width: 96px;
+      top: 32%;
+      right: 4%;
+      animation: fadeUpDownPonpon2 1s 1s linear infinite alternate !important;
+    }
+    &--delivery,
+    &--shopping {
+      position: absolute;
+      z-index: 1;
+      transform: translate(-50%);
+    }
+    @keyframes fadeUpDownPonpon2 {
+      0% {
+        margin-top: 12px;
+      }
+      100% {
+        margin-top: 0px;
+      }
+    }
+  }
+  // tablet
+  @include media_query("tab") {
+    flex-direction: column;
+    justify-content: flex-start;
+    &__box {
+      margin: 0 auto;
+      text-align: center;
+    }
+    &__visual {
+      overflow: hidden;
+      position: relative;
+    }
+  }
+  @include media_query("sp_v") {
+    height: 100%;
+    &__box {
+      padding: 0;
+    }
+    &__title {
+      font-size: 2rem;
+    }
+    &__text {
+      font-size: 1rem;
+      line-height: 2;
+    }
+    &__title,
+    &__text {
+      span {
+        display: initial;
+      }
+    }
+    &__visual {
+      top: 40px;
+      &--main {
+        width: 480px;
+      }
+      &--delivery {
+        max-width: 120px;
+        top: 0;
+        left: 32%;
+      }
+      &--shopping {
+        max-width: 80px;
+        top: 12%;
+        right: 0;
+      }
+    }
+  }
+}
+
+// ========================================
+// *** introduction
+// ========================================
+.introduction {
+  // background: #fffbf8;
+  background: #fef5f5;
+  position: relative;
+  .wave {
+    &__top, &__buttom {
+      fill: #fef5f5;
+    }
+  }
+  .lp-head {
+    &__title {
+      color: $color-ponpon;
+    }
+  }
+  &__box {
+    background-image: url("../../images/ponpon-regist-visual.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 800px;
+    height: 100vh;
+    position: relative;
+  }
+  &__item {
+    color: #885555;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2;
+    text-shadow: 0 0 8px rgba(254, 245, 245, 0.8), 0 0 8px rgba(254, 245, 245, 0.8), 0 0 10px rgba(254, 245, 245, 0.8),
+      0 0 10px rgba(254, 245, 245, 0.8);
+    position: absolute;
+    &::before {
+      content: "";
+      border-radius: 50rem;
+      background: $color-accent;
+      margin-bottom: 16px;
+      width: 80px;
+      height: 5px;
+      display: flex;
+      flex-direction: column;
+    }
+    span {
+      display: block;
+    }
+    b {
+      color: $color-ponpon !important;
+    }
+    &:nth-child(1) {
+      top: 12%;
+      right: 16%;
+    }
+    &:nth-child(2) {
+      top: 32%;
+      left: 8%;
+    }
+    &:nth-child(3) {
+      bottom: 32%;
+      right: 8%;
+    }
+    &:nth-child(4) {
+      bottom: 12%;
+      left: 16%;
+    }
+  }
+  // tablet
+  @include media_query("tab") {
+    flex-direction: column;
+    justify-content: flex-start;
+    &__box {
+      background-size: 640px;
+    }
+    &__item {
+      &:nth-child(1) {
+        right: 0;
+      }
+      &:nth-child(2) {
+        left: 0;
+      }
+      &:nth-child(3) {
+        right: 4%;
+      }
+      &:nth-child(4) {
+        bottom: 12%;
+        left: 8%;
+      }
+    }
+  }
+  // smartphone
+  @include media_query("sp_v") {
+    &__box {
+      background-size: 400px;
+      background-position: center 40px;
+      height: 50rem;
+      display: flex;
+      flex-direction: column;
+    }
+    &__item {
+      font-size: 1rem;
+      position: static;
+      margin-bottom: 40px !important;
+      &::before {
+        width: 40px;
+        height: 4px;
+      }
+      &:nth-child(1) {
+        padding-top: 320px;
+      }
+      &:nth-child(2n) {
+        margin: 0 0 0 auto;
+      }
+    }
+  }
+}
+
+// ========================================
+// *** manual
+// ========================================
+.manual {
+  .lp-head {
+    &__title {
+      margin-top: 160px;
+    }
+    &__description {
+      color: $color-ponpon;
+    }
+  }
+  .list {
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 80px auto;
+    &__item {
+      width: 100%;
+      display: flex;
+      border-bottom: 1px solid $color-gray-f0;
+      padding: 40px 0;
+    }
+    &__content {
+      width: 100%;
+    }
+    &__time {
+      color: $color-ponpon;
+      font-size: 1.75rem;
+      margin-bottom: 24px;
+      display: block;
+    }
+    &__text {
+      font-size: 1.25rem;
+      line-height: 2;
+      padding-right: 40px;
+    }
+    &__time,
+    &__text {
+      font-weight: bold;
+    }
+    &__attantion {
+      color: $color-gray-80;
+      font-size: .65em;
+      margin-top: 20px;
+      display: block;
+    }
+    &__image {
+      border-radius: 1rem;
+      max-width: 480px;
+      min-width: 480px;
+      height: 270px;
+      margin: 0 auto;
+      overflow: hidden;
+      img {
+        object-fit: cover;
+        height: 100%;
+      }
+    }
+  }
+  // tablet
+  @include media_query("tab") {
+    .lp-head {
+      &__title {
+        font-size: 2.75rem;
+      }
+    }
+    .list {
+      &__item {
+        flex-direction: column-reverse;
+      }
+      &__content {
+        margin-top: 24px;
+      }
+      &__text {
+        padding-right: 0;
+      }
+      &__time {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+      }
+    }
+  }
+  // smartphone
+  @include media_query("sp_v") {
+    .lp-head {
+      &__title {
+        font-size: 2rem;
+        text-align: left;
+      }
+      &__description {
+        font-size: 1.5rem;
+        text-align: left;
+        white-space: nowrap;
+        span {
+          display: block;
+        }
+      }
+    }
+    .list {
+      padding: 0;
+      &__item {
+        padding: 24px 0;
+      }
+      &__image {
+        max-width: 100%;
+        min-width: 100%;
+        height: 200px;
+      }
+      &__time {
+        font-size: 1.25rem;
+      }
+      &__text {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+// ========================================
+// *** app
+// ========================================
+.app {
+  background: #fef5f5;
+  padding: 40px 0;
+  margin: 160px auto;
+  position: relative;
+  .lp-head {
+    margin-bottom: 80px;
+  }
+  .inner--large {
+    margin: 0 auto;
+  }
+  .wave {
+    &__top, &__buttom {
+      fill: #fef5f5;
+    }
+  }
+  &__item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:nth-of-type(odd) {
+      flex-direction: row-reverse;
+      .app__box {
+        img {
+          margin: 0 auto 0 0;
+        }
+      }
+    }
+  }
+  &__title {
+    color: $color-ponpon;
+    font-size: 2.25rem;
+    margin-bottom: 24px;
+  }
+  &__text {
+    color: #885555;
+    font-size: 1.25rem;
+    line-height: 2;
+  }
+  &__box {
+    width: 50%;
+    img {
+      max-width: 480px;
+      display: block;
+      margin: 0 0 0 auto;
+    }
+  }
+  // tablet
+  @include media_query("tab") {
+    &__title {
+      font-size: 1.75rem;
+    }
+    &__text {
+      font-size: 1rem;
+    }
+  }
+  // smartphone
+  @include media_query("sp_v") {
+    &__item {
+      flex-direction: column-reverse !important;
+      &:nth-of-type(odd) {
+        margin-bottom: 64px;
+      }
+    }
+    &__box {
+      width: 100%;
+      img {
+        margin-bottom: 24px !important;
+      }
+    }
+    &__title {
+      font-size: 1.5rem;
+    }
+    &__text {
+      font-size: .9125rem;
+    }
+  }
+}
+
+// ========================================
+// *** lp-login
+// ========================================
+.lp-login {
+  &__image {
+    max-width: 640px;
+    margin: 0px auto 80px;
+  }
+  &__button {
+    text-align: center;
+    margin: 80px auto;
+    a {
+      color: $color-white;
+      background: $color-ponpon;
+      border-radius: 50rem;
+      font-size: 2rem;
+      padding: 4px 40px;
+      transition: .4s;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  // smartphone
+  @include media_query("sp_v") {
+    .lp-head {
+      &__description {
+        font-size: 1.25rem;
+      }
+    }
+    &__button {
+      a {
+        font-size: 1.25rem;
+        padding: 8px 40px;
+      }
+    }
+  }
+}
+
+// ========================================
+// *** slide anime slick
+// ========================================
+.team {
+  margin-bottom: 240px;
+  .lp-head {
+    padding: 40px 0;
+    position: relative;
+    &::before {
+      content: "VEST OF TEAMS";
+      color: $color-gray-f5;
+      position: absolute;
+      white-space: nowrap;
+      transform: translate(-50%);
+      top: -24px;
+      left: 50%;
+      font-family: $font-MPulsRound;
+      font-size: 8rem;
+      z-index: -1;
+    }
+  }
+  &__list {
+    li {
+      padding: 12px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 1rem;
+        object-fit: cover;
+      }
+    }
+  }
+  // tablet
+  @include media_query("tab") {
+    .lp-head {
+      &::before {
+        font-size: 5rem;
+        top: 48px;
+      }
+    }
+  }
+  // tablet
+  @include media_query("tab") {
+    .lp-head {
+      &::before {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+.slick-track {
+  display: flex;
+}
+
+// ========================================
+// *** gallery
+// ========================================
+.gallery {
+  margin-bottom: 120px;
+}
+
+// ========================================
+// *** animation
+// ========================================
+// js animation scroll fade up
+.fadeAnimeJs {
+  > * {
+    opacity: 0;
+    &.scroll--in {
+      opacity: 1;
+      animation: fadeUpJs 0.8s ease-out;
+    }
+  }
+}
+@keyframes fadeUpJs {
+  0% {
+    opacity: 0;
+    transform: translate(0, 40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+// ========================================
+// *** modal-videojs style
+// ========================================
+.videoPr {
+  position: relative;
+  padding: 80px 0 120px;
+  background: $color-gray-fa;
+  &__title {
+    color: $color-ponpon;
+    font-size: 1.75rem;
+    margin-bottom: 24px;
+  }
+  &__box {
+    position: relative;
+    padding: 0 8%;
+    margin: 80px auto 120px;
+  }
+  &__image {
+    position: relative;
+    img {
+      margin: 0 auto;
+    }
+  }
+  &__button {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    button {
+      cursor: pointer;
+      color: $color-white;
+      background: $color-ponpon;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+      padding: 8px 16px;
+      transition: 0.4s;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  .wave__buttom {
+    fill: $color-gray-f5;
+  }
+  // tablet
+  @include media_query("tab") {
+    flex-direction: column;
+    justify-content: flex-start;
+    &__box {
+      text-align: center;
+      margin: 0 auto;
+      padding: 8%;
+    }
+  }
+  // smartphone
+  @include media_query("sp_v") {
+    &__title {
+      span {
+        display: block;
+      }
+    }
+  }
+}
+@keyframes modal-video {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modal-video-inner {
+  from {
+    transform: translate(0, 100px);
+  }
+  to {
+    transform: translate(0, 0);
+  }
+}
+.modal-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000000;
+  cursor: pointer;
+  opacity: 1;
+  animation-timing-function: ease-out;
+  animation-duration: 0.3s;
+  animation-name: modal-video;
+  -webkit-transition: opacity 0.3s ease-out;
+  -moz-transition: opacity 0.3s ease-out;
+  -ms-transition: opacity 0.3s ease-out;
+  -o-transition: opacity 0.3s ease-out;
+  transition: opacity 0.3s ease-out;
+  &-close {
+    opacity: 0;
+    .modal-video-movie-wrap {
+      -webkit-transform: translate(0, 100px);
+      -moz-transform: translate(0, 100px);
+      -ms-transform: translate(0, 100px);
+      -o-transform: translate(0, 100px);
+      transform: translate(0, 100px);
+    }
+    &-btn {
+      position: absolute;
+      z-index: 2;
+      top: -35px;
+      right: -35px;
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      overflow: hidden;
+      border: none;
+      background: transparent;
+      &::before {
+        transform: rotate(45deg);
+      }
+      &::after {
+        transform: rotate(-45deg);
+      }
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        margin-top: -1px;
+        background: #fff;
+        border-radius: 5px;
+        margin-top: -6px;
+      }
+    }
+  }
+  &-body {
+    max-width: 940px;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: table;
+  }
+  &-inner {
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+  }
+  &-movie-wrap {
+    width: 100%;
+    height: 0;
+    position: relative;
+    padding-bottom: 56.25%;
+    background-color: #333;
+    animation-timing-function: ease-out;
+    animation-duration: 0.3s;
+    animation-name: modal-video-inner;
+    -webkit-transform: translate(0, 0);
+    -moz-transform: translate(0, 0);
+    -ms-transform: translate(0, 0);
+    -o-transform: translate(0, 0);
+    transform: translate(0, 0);
+    -webkit-transition: -webkit-transform 0.3s ease-out;
+    -moz-transition: -moz-transform 0.3s ease-out;
+    -ms-transition: -ms-transform 0.3s ease-out;
+    -o-transition: -o-transform 0.3s ease-out;
+    transition: transform 0.3s ease-out;
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
     }
   }
 }

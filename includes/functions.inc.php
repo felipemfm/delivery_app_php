@@ -56,12 +56,12 @@ function invalidEmail($email)
 {
     return !filter_var($email, FILTER_VALIDATE_EMAIL);
 }
-function userExists($conn, $uid, $email)
+function userExists($conn, $uid)
 {
-    $sql = "SELECT * FROM users_database WHERE user_id = ? OR user_email = ?;";
+    $sql = "SELECT * FROM users_database WHERE user_id = ?;";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)) header("location: ../member/regist.php?error=stmtFailed");
-    mysqli_stmt_bind_param($stmt, "ss", $uid, $email);
+    mysqli_stmt_bind_param($stmt, "s", $uid);
     mysqli_stmt_execute($stmt);
 
     $resultData = mysqli_stmt_get_result($stmt);
@@ -90,9 +90,9 @@ function emptyInputLogin($email, $pwd)
 {
     return empty($email) || empty($pwd);
 }
-function loginUser($conn, $uid, $email, $pwd)
+function loginUser($conn, $uid, $pwd)
 {
-    $userExists = userExists($conn, $uid, $email);
+    $userExists = userExists($conn, $uid);
 
     if ($userExists === false) {
         session_start();

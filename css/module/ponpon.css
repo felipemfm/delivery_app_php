@@ -140,7 +140,7 @@ input[type="date"], input[type="time"] { -webkit-appearance: none; -webkit-min-l
 
 .head__link--ponpon { background: #f22580; }
 
-.head__link--accent { background: #ffbb08; }
+.head__link--accent { background: #ffeb00; }
 
 .head--flex { display: flex; align-items: center; justify-content: space-between; }
 
@@ -487,6 +487,8 @@ footer { color: #252525; background: #f0f0f0; text-align: center; margin-top: au
 
 footer small { font-size: 0.75rem; color: #808080; display: block; text-align: center; }
 
+@media screen and (max-width: 767px) { footer small { font-size: 0.5rem; } }
+
 .member .title { padding: 24px 0; margin: 40px 0 0 0; }
 
 @media screen and (max-width: 1024px) { .member { margin-bottom: 80px; } }
@@ -635,7 +637,7 @@ footer small { font-size: 0.75rem; color: #808080; display: block; text-align: c
 
 .order-card__total--price { margin-left: 16px; }
 
-.order-card__total--price .svg-inline--fa { background: #ffbb08; }
+.order-card__total--price .svg-inline--fa { background: #ffeb00; }
 
 .order-card__total--button { width: 100%; }
 
@@ -699,7 +701,7 @@ footer small { font-size: 0.75rem; color: #808080; display: block; text-align: c
 
 .wrap--friend .head__link { font-size: 0.8125rem; color: #22a8e0; background: #ffffff; margin: 0 0 24px 0; }
 
-.friend--flex { display: flex; flex-wrap: wrap; align-items: flex-start; }
+.friend--flex { display: flex; flex-wrap: wrap; align-items: stretch; }
 
 .friend .cardBg { cursor: pointer; background: #ffffff; border: 1px solid #f0f0f0; box-shadow: none; position: relative; transition: 0.4s ease; width: 20%; width: calc(20% - 80px / 5); margin: 0 20px 20px 0; }
 
@@ -754,7 +756,7 @@ footer small { font-size: 0.75rem; color: #808080; display: block; text-align: c
 
 .friend .cardBg__button--add button { background: #22a8e0; outline-color: #22a8e0; }
 
-.friend .cardBg__button--new button { background: #ffbb08; outline-color: #ffbb08; }
+.friend .cardBg__button--new button { background: #ffeb00; outline-color: #ffeb00; }
 
 .friend--add .hero__message { background: rgba(255, 255, 255, 0.7); border-radius: 1rem; width: 88.888888%; max-width: 800px; padding: 40px 20px; top: 8rem; }
 

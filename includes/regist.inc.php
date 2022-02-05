@@ -34,7 +34,7 @@ if (isset($_POST["submit"])) {
         header("location: ../member/regist.php");
         exit();
     }
-    if (userExists($conn, $uid, $email) !== false) {
+    if (userExists($conn, $uid) !== false) {
         $_SESSION["error"] = "userExists";
         header("location: ../member/regist.php");
         exit();
