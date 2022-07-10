@@ -2,7 +2,6 @@
 
 A futuristc personal drone delivery application devoloped using PHP and the Google Maps Api.
 
-[Website](https://ponpon.website/index.php)
 ## General info
 
 Developed for as graduation project for the Technical School HAL Tokyo in Japan. 
